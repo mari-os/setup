@@ -535,6 +535,7 @@ kamanda		10081/tcp			# amanda backup services (Kerberos)
 kamanda		10081/udp			# amanda backup services (Kerberos)
 amandaidx	10082/tcp			# amanda backup services
 amidxtape	10083/tcp			# amanda backup services
+ladcca		14541/tcp			# LADCCA client/server protocol
 isdnlog		20011/tcp			# isdn logging system
 isdnlog		20011/udp			# isdn logging system
 vboxd		20012/tcp			# voice box system
