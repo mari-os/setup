@@ -47,7 +47,7 @@ if [ -n "$sourced" ]; then
 		case $SYSFONTACM in
 			iso01*|iso02*|iso08*|iso15*|koi*|latin2-ucw*|cp1251*|pt154*)
 				if [ "$TERM" = linux -a "`/sbin/consoletype`" = vt ]; then
-					echo -ne '\033(K' >&0
+					printf %b '\033(K' >&0
 				fi
 				;;
 		esac
