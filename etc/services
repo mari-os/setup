@@ -118,6 +118,8 @@ nntp		119/tcp		readnews untp	# USENET News Transfer Protocol
 nntp		119/udp		readnews untp	# USENET News Transfer Protocol
 ntp		123/tcp
 ntp		123/udp				# Network Time Protocol
+pwdgen		129/tcp				# Password Generator Protocol
+pwdgen		129/udp				# Password Generator Protocol
 netbios-ns	137/tcp				# NETBIOS Name Service
 netbios-ns	137/udp
 netbios-dgm	138/tcp				# NETBIOS Datagram Service
