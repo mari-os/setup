@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.2
+Version: 2.2.3
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -61,6 +61,9 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Mon Jan 19 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.3-alt1
+- profile.d/tmpdir.sh: removed #!/bin/sh header.
+
 * Sun May 11 2003 Dmitry V. Levin <ldv@altlinux.org> 2.2.2-alt1
 - %_sysconfdir/profile:
   + when processing %_sysconfdir/profile.d/*.sh files,
