@@ -41,13 +41,13 @@ find -name \*_d |
 %config(noreplace) %_sysconfdir/csh.*
 %config(noreplace) %_sysconfdir/exports
 %config(noreplace) %_sysconfdir/filesystems
-%config(noreplace) %_sysconfdir/fstab
+%config(noreplace) %verify(not md5 size mtime) %_sysconfdir/fstab
 %config(noreplace) %_sysconfdir/host.conf
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/hosts
 %config(noreplace) %_sysconfdir/hosts.*
 %config(noreplace) %_sysconfdir/inputrc
 %config(noreplace) %_sysconfdir/motd
-%config(noreplace) %_sysconfdir/printcap
+%config(noreplace) %verify(not md5 size mtime) %_sysconfdir/printcap
 %config(noreplace) %_sysconfdir/profile
 %config(noreplace) %_sysconfdir/protocols
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/resolv.conf
@@ -55,7 +55,7 @@ find -name \*_d |
 %config(noreplace) %_sysconfdir/shells
 %config(noreplace) %attr(600,root,root) %_sysconfdir/securetty
 %config(noreplace) %_sysconfdir/profile.d
-%config(noreplace) %_sysconfdir/X11/fs
+%config(noreplace) %verify(not md5 size mtime) %_sysconfdir/X11/fs
 %config(noreplace) %_sysconfdir/X11/profile.d
 %ghost /var/log/*
 %_datadir/base-passwd
