@@ -9,9 +9,16 @@ ulimit -Sc 0 >/dev/null 2>&1
 
 umask 022
 
-[ "$PATH" != "${PATH//$HOME\/bin}" ] || PATH="$HOME/bin:$PATH"
-[ "$PATH" != "${PATH//\/usr\/X11R6\/bin}" ] || PATH="$PATH:/usr/X11R6/bin"
-[ "$PATH" != "${PATH//\/usr\/games}" ] || PATH="$PATH:/usr/games"
+[ -n "$PATH" ] || PATH="/bin:/usr/bin:/usr/local/bin"
+[ "$PATH" = "$HOME/bin" -o -z "${PATH##$HOME/bin:*}" -o \
+  -z "${PATH%%*:$HOME/bin}" -o -z "${PATH##*:$HOME/bin:*}" ] ||
+	PATH="$HOME/bin:$PATH"
+[ "$PATH" = "/usr/X11R6/bin" -o -z "${PATH##/usr/X11R6/bin:*}" -o \
+  -z "${PATH%%*:/usr/X11R6/bin}" -o -z "${PATH##*:/usr/X11R6/bin:*}" ] ||
+	PATH="$PATH:/usr/X11R6/bin"
+[ "$PATH" = "/usr/games" -o -z "${PATH##/usr/games:*}" -o \
+  -z "${PATH%%*:/usr/games}" -o -z "${PATH##*:/usr/games:*}" ] ||
+	PATH="$PATH:/usr/games"
 export PATH
 
 [ -n "$USER" ] || USER="`/usr/bin/id -un`"

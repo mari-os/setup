@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.3
+Version: 2.2.4
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -61,6 +61,9 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Sun Jan 25 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.4-alt1
+- /etc/profile.d: eliminated pattern substitutions (#2777).
+
 * Mon Jan 19 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.3-alt1
 - /etc/profile.d/tmpdir.sh: removed #!/bin/sh header,
   to get rid of /bin/sh dependence.
