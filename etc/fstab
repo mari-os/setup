@@ -1,0 +1,6 @@
+# $Id$
+
+proc		/proc			proc	gid=19			0 0
+devpts		/dev/pts		devpts	gid=5,mode=620		0 0
+/dev/cdrom	/mnt/cdrom		auto	noauto,nosuid,nodev,owner,ro	0 0
+/dev/floppy	/mnt/floppy		auto	noauto,nosuid,nodev,owner	0 0
