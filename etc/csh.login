@@ -2,22 +2,21 @@
 # System profile for basic ALT Linux system.
 #
 # It is recommended that this file be left unchanged to ease upgrades,
-# and any local additions go into /etc/profile.d/_local.csh.
+# and any local additions go into /etc/profile.d/ directory.
 
 setenv PATH "/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin"
 
+# See also /etc/security/limits.conf
 limit coredumpsize 0
 umask 022
 
 setenv HOSTNAME `/bin/hostname`
 set history=9999
 
-test -d /etc/profile.d
-if ($status == 0) then
+if ( -d /etc/profile.d ) then
 	set nonomatch
 	foreach i ( /etc/profile.d/*.csh )
-		test -f $i
-		if ($status == 0) then
+		if ( -f $i && -r $i && -s $i ) then
 			source $i
 		endif
 	end

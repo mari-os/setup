@@ -3,10 +3,10 @@
 set sourced=0
 
 foreach file ($HOME/.i18n /etc/sysconfig/i18n)
-	if ($sourced == 0 && -f $file ) then
-	    eval `sed 's|^#.*||' $file | sed 's|\([^=]*\)=\([^=]*\)|setenv \1 \2|g' | sed 's|$|;|' `
-	set sourced=1
-	endif
+    if ( $sourced == 0 && -f $file && -s $file ) then
+        eval `sed -ne 's|^\([^#=]\+\)=\([^=]*\)$|setenv \1 \2;|pg' $file`
+        set sourced=1
+    endif
 end
 
 if ($sourced == 1) then
@@ -25,26 +25,26 @@ if ($sourced == 1) then
             unsetenv LINGUAS
         endif
     endif
-
-    if ($?SYSFONTACM) then
-        switch ($SYSFONTACM)
-	    case iso01*:
-	    case iso02*:
-	    case iso15*:
-	    case koi*:
-	    case latin2-ucw*:
-	    case cp1251*:
-	    case pt154*:
-	        if ( $?TERM ) then
-		    if ( "$TERM" == "linux" ) then
-		        if ( `/sbin/consoletype` == "vt" ) then
-			    /bin/echo -n -e '\033(K' > /dev/stdin
-		        endif
-		    endif
-		endif
-		breaksw
-	endsw
+    if ( $?DISPLAY ) then
+        if ( $?X11_NOT_LOCALIZED ) then
+            if ( $X11_NOT_LOCALIZED == "yes" ) then
+                set LANGUAGE="C"
+            endif
+        endif
+    else
+        if ( $?CONSOLE_NOT_LOCALIZED ) then
+            if ( $CONSOLE_NOT_LOCALIZED == "yes" ) then
+                set LANGUAGE="C"
+            endif
+        endif
+    endif
+    if ($?LANGUAGE && $?LANG) then
+        if ($LANGUAGE == $LANG) then
+            unsetenv LANGUAGE
+        endif
     endif
     unsetenv SYSFONTACM
     unsetenv SYSFONT
 endif
+
+unsetenv sourced

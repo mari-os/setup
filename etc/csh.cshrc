@@ -8,12 +8,10 @@ if ($?prompt) then
 	endif
 endif
 
-test -d /etc/profile.d
-if ($status == 0) then
+if ( -d /etc/profile.d ) then
 	set nonomatch
 	foreach i ( /etc/profile.d/*.csh )
-		test -f $i
-		if ($status == 0) then
+		if ( -f $i && -r $i && -s $i ) then
 			source $i
 		endif
 	end
