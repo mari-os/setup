@@ -22,6 +22,7 @@ find -name \*_d |
 	while read f; do
 		%__mv -v "$f" "${f%_d}.d"
 	done
+%__mkdir_p etc/X11/profile.d
 
 %install
 %__mkdir_p $RPM_BUILD_ROOT%_datadir
