@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.5
+Version: 2.2.6
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -61,6 +61,14 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Fri Nov 19 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.6-alt1
+- services: added entries, closes: #4183, #5499.
+- profile: ignore non-regular files.
+- lang.sh: unset LANGUAGE if same as LANG.
+- tmpdir.sh: enhanced TMPDIR checks.
+- csh.cshrc, csh.login, lang.csh, tmpdir.csh, xhost.csh:
+  synced with corresponding bourne shell versions, closes: #2618.
+
 * Thu Jan 29 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.5-alt1
 - /etc/profile.d/lang.sh: moved console related part
   to console-tools (Alexander V. Nikolaev).
