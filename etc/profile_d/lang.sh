@@ -43,16 +43,6 @@ if [ -n "$sourced" ]; then
 	[ -n "$XMODIFIERS" ] && export XMODIFIERS || Unset XMODIFIERS
 	[ -n "$_XKB_CHARSET" ] && export _XKB_CHARSET || Unset _XKB_CHARSET
 
-	if [ -n "$SYSFONTACM" ]; then
-		case $SYSFONTACM in
-			iso01*|iso02*|iso08*|iso15*|koi*|latin2-ucw*|cp1251*|pt154*)
-				if [ "$TERM" = linux -a "`/sbin/consoletype`" = vt ]; then
-					printf %b '\033(K' >&0
-				fi
-				;;
-		esac
-	fi
-
 	Unset SYSFONTACM SYSFONT
 
 	# handling of special cases where localization is done

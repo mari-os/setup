@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.4
+Version: 2.2.5
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -61,6 +61,10 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Thu Jan 29 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.5-alt1
+- /etc/profile.d/lang.sh: moved console related part
+  to console-tools (Alexander V. Nikolaev).
+
 * Sun Jan 25 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.4-alt1
 - /etc/profile.d: eliminated pattern substitutions (#2777).
 
