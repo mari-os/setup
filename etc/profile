@@ -32,7 +32,7 @@ HISTFILESIZE=9999
 export HOSTNAME HISTSIZE HISTFILESIZE
 
 for f in /etc/profile.d/*.sh; do
-	if [ -r "$f" -a -x "$f" ]; then
+	if [ -f "$f" -a -r "$f" -a -x "$f" ]; then
 		. "$f"
 	fi
 done
