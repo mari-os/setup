@@ -38,7 +38,7 @@ set output-meta on
 "\e[\C-@": beginning-of-line
 "\e[e": end-of-line
 
-$if term=xterm
+#if term=xterm
 #
 # Application keypad and cursor of xterm
 # with NumLock ON
@@ -66,7 +66,7 @@ $if term=xterm
 "\eOw":         "7"
 "\eOx":         "8"
 "\eOy":         "9"
-$endif
+#endif xterm
 
 #
 # Application keypad and cursor of xterm
