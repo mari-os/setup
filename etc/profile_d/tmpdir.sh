@@ -1,4 +1,3 @@
-#!/bin/sh
 # $Id$
 
 if [ -z "$TMPDIR" ] || [ ! -d "$TMPDIR" ]; then
