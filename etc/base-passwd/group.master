@@ -50,6 +50,7 @@ ldap:x:55:
 loop:x:70:
 floppy:x:71:
 utmp:x:72:
+exim:x:79:
 cdwriter:x:80:
 audio:x:81:
 x10:x:82:

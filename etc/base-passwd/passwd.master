@@ -26,6 +26,7 @@ mysql:*:45:45:MySQL server:/var/lib/mysql:/dev/null
 postgres:*:46:46:PostgreSQL Server:/var/lib/pgsql:/dev/null
 gdm:*:47:47:GDM:/var/lib/gdm:/dev/null
 ldap:*:55:55:LDAP User:/var/lib/ldap:/dev/null
+exim:*:79:79:Exim Mail Transport Agent:/var/spool/exim:/dev/null
 sympa:*:89:89:Sympa Mailing list manager:/var/lib/sympa:/dev/null
 apache:*:96:96:Apache web server:/var/www:/dev/null
 nobody:*:99:99:Nobody:/var/nobody:/dev/null
