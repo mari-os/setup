@@ -52,7 +52,11 @@ if [ -n "$sourced" ]; then
 	else
 		if [ "$CONSOLE_NOT_LOCALIZED" = yes ]; then LANGUAGE=C; fi
 	fi
-	if [ -n "$LANGUAGE" ]; then export LANGUAGE; fi
+	if [ -n "$LANGUAGE" ]; then
+		[ "$LANGUAGE" != "$LANG" ] && export LANGUAGE || Unset LANGUAGE
+	else
+		Unset LANGUAGE
+	fi
 fi
 
 unset sourced
