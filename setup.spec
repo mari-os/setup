@@ -1,3 +1,5 @@
+# $Id$
+
 Name: setup
 Version: 2.2.6
 Release: alt1
