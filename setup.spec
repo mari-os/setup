@@ -62,7 +62,12 @@ find -name \*_d |
 
 %changelog
 * Mon Jan 19 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.3-alt1
-- profile.d/tmpdir.sh: removed #!/bin/sh header.
+- /etc/profile.d/tmpdir.sh: removed #!/bin/sh header,
+  to get rid of /bin/sh dependence.
+- /etc/inputrc: enabled application keypad aliases for all terms (#1671).
+- /etc/{passwd,group}: added exim (#2604).
+- /etc/profile.d/lang.sh: use printf instead of echo -n (#2777).
+- /etc/services: added pwdgen (#2923), ladcca (#3196).
 
 * Sun May 11 2003 Dmitry V. Levin <ldv@altlinux.org> 2.2.2-alt1
 - %_sysconfdir/profile:
