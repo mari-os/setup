@@ -39,7 +39,15 @@ if ($sourced == 1) then
         endif
     endif
     if ($?LANGUAGE && $?LANG) then
-        if ($LANGUAGE == $LANG) then
+        if ($LANGUAGE == "" || $LANGUAGE == $LANG) then
+            unsetenv LANGUAGE
+        endif
+    endif
+    if ($?LANGUAGE == 0 && $?LANG) then
+        setenv LANGUAGE `grep -s ^${LANG}: /etc/sysconfig/langmap ||:`
+    endif
+    if ($?LANGUAGE && $?LANG) then
+        if ($LANGUAGE == "" || $LANGUAGE == $LANG) then
             unsetenv LANGUAGE
         endif
     endif

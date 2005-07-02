@@ -55,7 +55,14 @@ if [ -n "$sourced" ]; then
 	if [ -n "$LANGUAGE" ]; then
 		[ "$LANGUAGE" != "$LANG" ] && export LANGUAGE || Unset LANGUAGE
 	else
-		Unset LANGUAGE
+		if [ -n "$LANG" -a -z "$LANGUAGE" ]; then
+			LANGUAGE="$(grep -s "^$LANG:" /etc/sysconfig/langmap ||:)"
+		fi
+		if [ -n "$LANGUAGE" ]; then
+			[ "$LANGUAGE" != "$LANG" ] && export LANGUAGE || Unset LANGUAGE
+		else
+			Unset LANGUAGE
+		fi
 	fi
 fi
 

@@ -568,6 +568,7 @@ hostmon		5355/tcp			# hostmon uses TCP (nocol)
 hostmon		5355/udp			# hostmon uses TCP (nocol)
 canna		5680/tcp
 x11-ssh-offset	6010/tcp			# SSH X11 forwarding offset
+sane		6566/tcp			# SANE network server
 ircd		6667/tcp			# Internet Relay Chat
 ircd		6667/udp			# Internet Relay Chat
 xfs		7100/tcp			# X font server

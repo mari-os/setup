@@ -3,15 +3,10 @@ bin:*:1:1:bin:/:/dev/null
 daemon:*:2:2:daemon:/:/dev/null
 adm:*:3:4:adm:/var/adm:/dev/null
 lp:*:4:7:lp:/var/spool/lpd:/dev/null
-sync:*:5:0:sync:/:/bin/sync
-shutdown:*:6:0:shutdown:/:/sbin/shutdown
-halt:*:7:0:halt:/:/sbin/halt
 mail:*:8:12:mail:/var/spool/mail:/dev/null
 news:*:9:13:news:/var/spool/news:/dev/null
 uucp:*:10:14:uucp:/var/spool/uucp:/dev/null
-operator:*:11:0:operator:/root:/dev/null
 games:*:12:100:games:/usr/games:/dev/null
-gopher:*:13:30:gopher:/usr/lib/gopher-data:
 ftp:*:14:50:FTP User:/var/ftp:/dev/null
 squid:*:23:23:Squid User:/var/spool/squid:/dev/null
 named:*:25:25:Bind User:/var/lib/named:/dev/null
@@ -27,6 +22,5 @@ postgres:*:46:46:PostgreSQL Server:/var/lib/pgsql:/dev/null
 gdm:*:47:47:GDM:/var/lib/gdm:/dev/null
 ldap:*:55:55:LDAP User:/var/lib/ldap:/dev/null
 exim:*:79:79:Exim Mail Transport Agent:/var/spool/exim:/dev/null
-sympa:*:89:89:Sympa Mailing list manager:/var/lib/sympa:/dev/null
 apache:*:96:96:Apache web server:/var/www:/dev/null
 nobody:*:99:99:Nobody:/var/nobody:/dev/null

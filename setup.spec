@@ -1,7 +1,7 @@
 # $Id$
 
 Name: setup
-Version: 2.2.6
+Version: 2.2.7
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -20,6 +20,8 @@ Initial set of configuration files to be placed into /etc.
 
 %prep
 %setup -q
+
+%build
 find -name \*_d |
 	while read f; do
 		%__mv -v "$f" "${f%_d}.d"
@@ -63,6 +65,20 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Sun Jun 26 2005 Dmitry V. Levin <ldv@altlinux.org> 2.2.7-alt1
+- group:
+  + added new groups for devices:
+    asterisk (closes #5744),
+    kqemu (closes #7149).
+- passwd,group:
+  + removed unused users: sync, halt, shutdown (#2560).
+  + removed sympa user/group(closes #6178).
+  + removed unused users: operator, gopher.
+- services: added sane entry (closes #7047).
+- lang.{sh,csh}: when LANGUAGE is not set, try to set it
+  according to /etc/sysconfig/langmap; all previous constrains
+  for this variable remain.
+
 * Fri Nov 19 2004 Dmitry V. Levin <ldv@altlinux.org> 2.2.6-alt1
 - services: added entries, closes: #4183, #5499.
 - profile: ignore non-regular files.
