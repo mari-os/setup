@@ -1,4 +1,5 @@
-# /etc/profile.d/lang.sh - set i18n stuff
+# $Id$
+# /etc/profile.d/0lang.sh - set i18n stuff
 
 sourced=
 for f in "$HOME/.i18n" /etc/sysconfig/i18n; do
