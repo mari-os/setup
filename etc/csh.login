@@ -16,7 +16,7 @@ set history=9999
 if ( -d /etc/profile.d ) then
 	set nonomatch
 	foreach i ( /etc/profile.d/*.csh )
-		if ( -f $i && -r $i && -s $i ) then
+		if ( -f $i && -r $i && -x $i && -s $i && ! -l $i ) then
 			source $i
 		endif
 	end
