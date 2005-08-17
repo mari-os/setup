@@ -45,14 +45,13 @@ popd
 %__install -pD -m644 /dev/null %buildroot/var/log/lastlog
 %__install -pD -m644 /dev/null %buildroot/var/log/faillog
 
-%triggerpostun -- %name < 0:2.2.8-alt1
-for f in /etc/profile.d/lang.{sh,csh}; do
-	if [ -L "$f".rpmnew -a ! -L "$f" ]; then
-		%__mv -f "$f".rpmnew "$f" ||:
-	fi
-done
+echo '%dir %_sysconfdir/profile.d' >profile.list
+find %buildroot%_sysconfdir/profile.d -type f |
+	sed -e 's|^%buildroot|%config(noreplace) |' >>profile.list
+find %buildroot%_sysconfdir/profile.d -type l |
+	sed -e 's|^%buildroot||' >>profile.list
 
-%files
+%files -f profile.list
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/passwd
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/group
 %config(noreplace) %_sysconfdir/csh.*
@@ -71,7 +70,6 @@ done
 %config(noreplace) %_sysconfdir/services
 %config(noreplace) %_sysconfdir/shells
 %config(noreplace) %attr(600,root,root) %_sysconfdir/securetty
-%config(noreplace) %_sysconfdir/profile.d
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/X11/fs
 %config(noreplace) %_sysconfdir/X11/profile.d
 %ghost /var/log/*
