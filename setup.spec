@@ -1,7 +1,7 @@
 # $Id$
 
 Name: setup
-Version: 2.2.7
+Version: 2.2.8
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -27,17 +27,23 @@ find -name \*_d |
 		%__mv -v "$f" "${f%_d}.d"
 	done
 %__mkdir_p etc/X11/profile.d
+pushd etc/profile.d
+	for f in lang.*; do
+		mv "$f" "0$f"
+		ln -s "0$f" "$f"
+	done
+popd
 
 %install
-%__mkdir_p $RPM_BUILD_ROOT%_datadir
-%__cp -a etc $RPM_BUILD_ROOT%_sysconfdir
+%__mkdir_p %buildroot%_datadir
+%__cp -a etc %buildroot%_sysconfdir
 
-%__mv $RPM_BUILD_ROOT%_sysconfdir/base-passwd $RPM_BUILD_ROOT%_datadir/
-%__cp -p $RPM_BUILD_ROOT%_datadir/base-passwd/group.master $RPM_BUILD_ROOT%_sysconfdir/group
-%__cp -p $RPM_BUILD_ROOT%_datadir/base-passwd/passwd.master $RPM_BUILD_ROOT%_sysconfdir/passwd
+%__mv %buildroot%_sysconfdir/base-passwd %buildroot%_datadir/
+%__cp -p %buildroot%_datadir/base-passwd/group.master %buildroot%_sysconfdir/group
+%__cp -p %buildroot%_datadir/base-passwd/passwd.master %buildroot%_sysconfdir/passwd
 
-%__install -pD -m644 /dev/null $RPM_BUILD_ROOT/var/log/lastlog
-%__install -pD -m644 /dev/null $RPM_BUILD_ROOT/var/log/faillog
+%__install -pD -m644 /dev/null %buildroot/var/log/lastlog
+%__install -pD -m644 /dev/null %buildroot/var/log/faillog
 
 %files
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/passwd
@@ -65,6 +71,14 @@ find -name \*_d |
 %_datadir/base-passwd
 
 %changelog
+* Wed Aug 17 2005 Dmitry V. Levin <ldv@altlinux.org> 2.2.8-alt1
+- Removed verify checks for files which are used to be modified
+  after install.
+- fstab: removed /mnt/cdrom and /mnt/floppy entries (#7619).
+- profile,csh.login: disabled sourcing empty files and symbolic links.
+- lang.{sh,csh}: renamed to 0lang.{sh,csh}, added symlinks
+  for backwards compatibility.
+
 * Sun Jun 26 2005 Dmitry V. Levin <ldv@altlinux.org> 2.2.7-alt1
 - group:
   + added new groups for devices:
