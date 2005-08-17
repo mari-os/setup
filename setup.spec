@@ -8,7 +8,7 @@ Summary: Initial set of configuration files
 License: GPL
 Group: System/Configuration/Other
 BuildArch: noarch
-AutoReq: yes, noshell
+AutoReq: no
 
 Source: %name-%version.tar.bz2
 
@@ -44,6 +44,13 @@ popd
 
 %__install -pD -m644 /dev/null %buildroot/var/log/lastlog
 %__install -pD -m644 /dev/null %buildroot/var/log/faillog
+
+%triggerpostun -- %name < 0:2.2.8-alt1
+for f in /etc/profile.d/lang.{sh,csh}; do
+	if [ -L "$f".rpmnew -a ! -L "$f" ]; then
+		%__mv -f "$f".rpmnew "$f" ||:
+	fi
+done
 
 %files
 %config(noreplace) %verify(not md5 size mtime) %_sysconfdir/passwd
