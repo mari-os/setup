@@ -1,4 +1,3 @@
-# $Id$
 # If TMPDIR is not defined, set it to ~/tmp and create it if required.
 
 setenv createtmp 0

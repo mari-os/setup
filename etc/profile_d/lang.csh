@@ -1,4 +1,3 @@
-# $Id$
 # /etc/profile.d/0lang.csh - set i18n stuff
 
 set sourced=0

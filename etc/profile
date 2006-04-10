@@ -1,4 +1,3 @@
-# $Id$
 # System profile for basic ALT Linux system.
 #
 # It is recommended that this file be left unchanged to ease upgrades,

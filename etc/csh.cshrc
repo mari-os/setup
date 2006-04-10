@@ -1,5 +1,3 @@
-# $Id$
-
 if ($?prompt) then
 	if ($?tcsh) then
 		set prompt='[%n@%m %c]$ ' 

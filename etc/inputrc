@@ -1,5 +1,4 @@
-	# ALT Linux readline initialization file.
-# $Id$	
+# ALT Linux readline initialization file.
 
 # Don't show all if ambigious - it kills slow network connection.
 set show-all-if-ambiguous off

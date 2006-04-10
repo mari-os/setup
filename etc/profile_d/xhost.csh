@@ -1,4 +1,3 @@
-# "$Id"
 # Export Xauthority for non-root users.
 
 if (! $?XAUTHORITY && ! $?SSH_TTY && $?DISPLAY) then

@@ -1,4 +1,3 @@
-# $Id$
 # /etc/profile.d/0lang.sh - set i18n stuff
 
 sourced=

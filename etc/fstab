@@ -1,4 +1,2 @@
-# $Id$
-
 proc		/proc			proc	gid=19			0 0
 devpts		/dev/pts		devpts	gid=5,mode=620		0 0

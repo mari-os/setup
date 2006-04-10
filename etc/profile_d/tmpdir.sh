@@ -1,4 +1,3 @@
-# $Id$
 # If TMPDIR is not defined, set it to ~/tmp and create the directory if required.
 
 if [ -z "$TMPDIR" ] || [ ! -d "$TMPDIR" -o ! -w "$TMPDIR" ]; then
