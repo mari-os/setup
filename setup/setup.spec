@@ -8,7 +8,7 @@ Group: System/Configuration/Other
 BuildArch: noarch
 AutoReq: no
 
-Source: %name-%version.tar.bz2
+Source: %name-%version.tar
 
 Provides: %_sysconfdir/profile.d, %_sysconfdir/X11/profile.d
 Conflicts: initscripts < 1:5.49.1-alt1
@@ -22,9 +22,9 @@ Initial set of configuration files to be placed into /etc.
 %build
 find -name \*_d |
 	while read f; do
-		%__mv -v "$f" "${f%_d}.d"
+		mv -v "$f" "${f%_d}.d"
 	done
-%__mkdir_p etc/X11/profile.d
+mkdir -p etc/X11/profile.d
 pushd etc/profile.d
 	for f in lang.*; do
 		mv "$f" "0$f"
@@ -33,15 +33,15 @@ pushd etc/profile.d
 popd
 
 %install
-%__mkdir_p %buildroot%_datadir
-%__cp -a etc %buildroot%_sysconfdir
+mkdir -p %buildroot%_datadir
+cp -a etc %buildroot%_sysconfdir
 
-%__mv %buildroot%_sysconfdir/base-passwd %buildroot%_datadir/
-%__cp -p %buildroot%_datadir/base-passwd/group.master %buildroot%_sysconfdir/group
-%__cp -p %buildroot%_datadir/base-passwd/passwd.master %buildroot%_sysconfdir/passwd
+mv %buildroot%_sysconfdir/base-passwd %buildroot%_datadir/
+cp -p %buildroot%_datadir/base-passwd/group.master %buildroot%_sysconfdir/group
+cp -p %buildroot%_datadir/base-passwd/passwd.master %buildroot%_sysconfdir/passwd
 
-%__install -pD -m644 /dev/null %buildroot/var/log/lastlog
-%__install -pD -m644 /dev/null %buildroot/var/log/faillog
+install -pD -m644 /dev/null %buildroot/var/log/lastlog
+install -pD -m644 /dev/null %buildroot/var/log/faillog
 
 echo '%dir %_sysconfdir/profile.d' >profile.list
 find %buildroot%_sysconfdir/profile.d -type f |
