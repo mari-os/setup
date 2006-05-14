@@ -7,6 +7,7 @@ License: GPL
 Group: System/Configuration/Other
 BuildArch: noarch
 AutoReq: no
+Packager: Dmitry V. Levin <ldv@altlinux.org>
 
 Source: %name-%version.tar
 
