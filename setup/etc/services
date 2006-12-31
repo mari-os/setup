@@ -309,6 +309,8 @@ pop3s		995/udp		spop3		# pop3 protocol over TLS/SSL
 
 socks		1080/tcp			# socks proxy server
 socks		1080/udp			# socks proxy server
+openvpn		1194/tcp	OpenVPN		# James Yonan, November 2004
+openvpn		1194/udp	OpenVPN		# James Yonan, November 2004
 bvcontrol	1236/tcp	rmtcfg		# Daniel J. Walsh, Gracilis Packeten remote config server
 bvcontrol	1236/udp			# Daniel J. Walsh
 h323hostcallsc	1300/tcp			# H323 Host Call Secure
@@ -464,6 +466,8 @@ afs3-update     7008/tcp			# server-to-server updater
 afs3-update     7008/udp			# server-to-server updater
 afs3-rmtsys     7009/tcp			# remote cache manager service
 afs3-rmtsys     7009/udp			# remote cache manager service
+git		9418/tcp			# git pack transfer service
+git		9418/udp			# git pack transfer service
 sd		9876/tcp   			# Session Director
 sd		9876/udp   			# Session Director
 amanda		10080/tcp			# amanda backup services
