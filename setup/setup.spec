@@ -23,7 +23,7 @@ Initial set of configuration files to be placed into /etc.
 %build
 find -name \*_d |
 	while read f; do
-		mv -v "$f" "${f%_d}.d"
+		mv -v "$f" "${f%%_d}.d"
 	done
 mkdir -p etc/X11/profile.d
 pushd etc/profile.d
@@ -44,9 +44,9 @@ cp -p %buildroot%_datadir/base-passwd/passwd.master %buildroot%_sysconfdir/passw
 install -pD -m644 /dev/null %buildroot/var/log/lastlog
 install -pD -m644 /dev/null %buildroot/var/log/faillog
 
-echo '%dir %_sysconfdir/profile.d' >profile.list
+echo '%%dir %_sysconfdir/profile.d' >profile.list
 find %buildroot%_sysconfdir/profile.d -type f |
-	sed -e 's|^%buildroot|%config(noreplace) |' >>profile.list
+	sed -e 's|^%buildroot|%%config(noreplace) |' >>profile.list
 find %buildroot%_sysconfdir/profile.d -type l |
 	sed -e 's|^%buildroot||' >>profile.list
 
@@ -335,7 +335,7 @@ find %buildroot%_sysconfdir/profile.d -type l |
 - /etc/profile uses $i, which needs to be unset
 
 * Mon Nov 03 1997 Donnie Barnes <djb@redhat.com>
-- made /etc/passwd and /etc/group %config(noreplace)
+- made /etc/passwd and /etc/group %%config(noreplace)
 
 * Mon Oct 20 1997 Erik Troan <ewt@redhat.com>
 - removed /etc/inetd.conf, /etc/rpc
