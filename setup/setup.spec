@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.8
+Version: 2.2.9
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -75,6 +75,12 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Sun Dec 31 2006 Dmitry V. Levin <ldv@altlinux.org> 2.2.9-alt1
+- Removed cvsid tags.
+- /etc/services: Added openvpn (#9498) and git ports.
+- /etc/fstab (/proc, /dev/pts):
+  Added nosuid,noexec options.  Changed to use symbolic gid values.
+
 * Wed Aug 17 2005 Dmitry V. Levin <ldv@altlinux.org> 2.2.8-alt1
 - Removed verify checks for files which are used to be modified
   after install.
