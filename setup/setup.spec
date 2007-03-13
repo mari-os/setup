@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.9
+Version: 2.2.10
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -75,6 +75,9 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Tue Mar 13 2007 Dmitry V. Levin <ldv@altlinux.org> 2.2.10-alt1
+- /etc/fstab: Added /tmp entry.
+
 * Sun Dec 31 2006 Dmitry V. Levin <ldv@altlinux.org> 2.2.9-alt1
 - Removed cvsid tags.
 - /etc/services: Added openvpn (#9498) and git ports.
