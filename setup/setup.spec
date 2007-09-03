@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.10
+Version: 2.2.11
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -12,7 +12,7 @@ Packager: Dmitry V. Levin <ldv@altlinux.org>
 Source: %name-%version.tar
 
 Provides: %_sysconfdir/profile.d, %_sysconfdir/X11/profile.d
-Conflicts: initscripts < 1:5.49.1-alt1
+Conflicts: initscripts < 1:5.49.1-alt1, xorg-x11-xfs < 1:1.0.4-alt2
 
 %description
 Initial set of configuration files to be placed into /etc.
@@ -69,12 +69,14 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %config(noreplace) %_sysconfdir/services
 %config(noreplace) %_sysconfdir/shells
 %config(noreplace) %attr(600,root,root) %_sysconfdir/securetty
-%config(noreplace) %verify(not md5 size mtime) %_sysconfdir/X11/fs
 %config(noreplace) %_sysconfdir/X11/profile.d
 %ghost /var/log/*
 %_datadir/base-passwd
 
 %changelog
+* Mon Sep 03 2007 Dmitry V. Levin <ldv@altlinux.org> 2.2.11-alt1
+- Moved /etc/X11/fs/config to xorg-x11-xfs package.
+
 * Tue Mar 13 2007 Dmitry V. Levin <ldv@altlinux.org> 2.2.10-alt1
 - /etc/fstab: Added /tmp entry.
 
