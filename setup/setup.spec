@@ -1,6 +1,6 @@
 Name: setup
 Version: 2.2.11
-Release: alt1
+Release: alt1.1
 
 Summary: Initial set of configuration files
 License: GPL
@@ -74,6 +74,11 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Sat Mar 29 2008 Michael Shigorin <mike@altlinux.org> 2.2.11-alt1.1
+- NMU: added a single-line pointer to portmap configuration file
+  (portmap listening to localhost by default proved to be a problem
+  for too many reasonable people); fixes #15153
+
 * Mon Sep 03 2007 Dmitry V. Levin <ldv@altlinux.org> 2.2.11-alt1
 - Moved /etc/X11/fs/config to xorg-x11-xfs package.
 
