@@ -1,6 +1,6 @@
 Name: setup
 Version: 2.2.11
-Release: alt1.1
+Release: alt1.2
 
 Summary: Initial set of configuration files
 License: GPL
@@ -74,6 +74,9 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Mon Nov 17 2008 Stanislav Ievlev <inger@altlinux.org> 2.2.11-alt1.2
+- add profiles to export proxy settings from /etc/sysconfig/network
+
 * Sat Mar 29 2008 Michael Shigorin <mike@altlinux.org> 2.2.11-alt1.1
 - NMU: added a single-line pointer to portmap configuration file
   (portmap listening to localhost by default proved to be a problem
