@@ -1,4 +1,4 @@
-# /etc/profile.d/proxy.sh - export proxy settings
+# /etc/profile.d/proxy.csh - export proxy settings
 
 set networkfile=/etc/sysconfig/network
 if ( -f $networkfile && -s $networkfile ) then

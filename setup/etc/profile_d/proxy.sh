@@ -1,12 +1,8 @@
 # /etc/profile.d/proxy.sh - export proxy settings
 
-networkfile=/etc/sysconfig/network
-
-if [ -s "$networkfile" ]; then
-    eval `egrep '^(HTTP_PROXY|HTTPS_PROXY|FTP_PROXY)=' "$networkfile"`
+if [ -s /etc/sysconfig/network ]; then
+    eval `egrep '^(HTTP_PROXY|HTTPS_PROXY|FTP_PROXY)=' /etc/sysconfig/network`
 fi
-
-unset networkfile
 
 if [ -n "$HTTP_PROXY" ]; then
     http_proxy="$HTTP_PROXY"

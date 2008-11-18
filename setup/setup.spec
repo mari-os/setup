@@ -1,6 +1,6 @@
 Name: setup
-Version: 2.2.11
-Release: alt1.2
+Version: 2.2.12
+Release: alt1
 
 Summary: Initial set of configuration files
 License: GPL
@@ -74,6 +74,9 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Tue Nov 18 2008 Dmitry V. Levin <ldv@altlinux.org> 2.2.12-alt1
+- 2.2.12.
+
 * Mon Nov 17 2008 Stanislav Ievlev <inger@altlinux.org> 2.2.11-alt1.2
 - add profiles to export proxy settings from /etc/sysconfig/network
 
