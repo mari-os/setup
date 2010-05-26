@@ -1,11 +1,10 @@
-# If TMPDIR is not defined, set it to ~/tmp and create the directory if required.
+# If TMPDIR is not defined or is not a writable directory,
+# set it to ~/tmp if the latter is a writable directory.
 
 if [ -z "$TMPDIR" ] || [ ! -d "$TMPDIR" -o ! -w "$TMPDIR" ]; then
 	if [ -d "$HOME/tmp" -a -w "$HOME/tmp" ]; then
 		export TMPDIR="$HOME/tmp"
-	elif install -d -m700 -- "$HOME/tmp" >/dev/null 2>&1; then
-		if [ -d "$HOME/tmp" -a -w "$HOME/tmp" ]; then
-			export TMPDIR="$HOME/tmp"
-		fi
+	elif [ -d "/tmp" -a -w "/tmp" ]; then
+		export TMPDIR="/tmp"
 	fi
 fi
