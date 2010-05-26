@@ -1,7 +1,2 @@
-ext2
-nodev proc
-nodev devpts
-iso9660
-reiserfs
-vfat
-
+# This file defines the filesystems search order used by a
+# 'mount -t auto' command.  For more details see mount(8).
