@@ -2,14 +2,22 @@
 
 set sourced=0
 
-foreach file ($HOME/.i18n /etc/sysconfig/i18n)
-    if ( $sourced == 0 && -f $file && -s $file ) then
-        eval `sed -ne 's|^\([^#=]\+\)=\([^=]*\)$|setenv \1 \2;|pg' $file`
+if ($?LANG) then
+    if ($LANG != "") then
         set sourced=1
     endif
-end
+endif
 
-if ($sourced == 1) then
+if (! $sourced) then
+    foreach file ($HOME/.i18n /etc/sysconfig/i18n)
+        if ($sourced == 0 && -f $file && -s $file) then
+            eval `sed -n 's|^\([^#=]\+\)=\([^=]*\)$|setenv \1 \2;|pg' $file`
+            set sourced=1
+        endif
+    end
+endif
+
+if ($sourced) then
     if ($?LC_ALL && $?LANG) then
         if ($LC_ALL == $LANG) then
             unsetenv LC_ALL
@@ -25,15 +33,15 @@ if ($sourced == 1) then
             unsetenv LINGUAS
         endif
     endif
-    if ( $?DISPLAY ) then
-        if ( $?X11_NOT_LOCALIZED ) then
-            if ( $X11_NOT_LOCALIZED == "yes" ) then
+    if ($?DISPLAY) then
+        if ($?X11_NOT_LOCALIZED) then
+            if ($X11_NOT_LOCALIZED == "yes") then
                 set LANGUAGE="C"
             endif
         endif
     else
-        if ( $?CONSOLE_NOT_LOCALIZED ) then
-            if ( $CONSOLE_NOT_LOCALIZED == "yes" ) then
+        if ($?CONSOLE_NOT_LOCALIZED) then
+            if ($CONSOLE_NOT_LOCALIZED == "yes") then
                 set LANGUAGE="C"
             endif
         endif

@@ -1,14 +1,17 @@
 # /etc/profile.d/0lang.sh - set i18n stuff
 
 sourced=
-for f in "$HOME/.i18n" /etc/sysconfig/i18n; do
-	if [ -s "$f" ] && . "$f"; then
-		sourced=1
-		break
-	fi
-done
-
-unset f
+if [ -n "${LANG-}" ]; then
+	sourced=1
+else
+	for f in "$HOME/.i18n" /etc/sysconfig/i18n; do
+		if [ -s "$f" ] && . "$f"; then
+			sourced=1
+			break
+		fi
+	done
+	unset f
+fi
 
 Unset()
 {
