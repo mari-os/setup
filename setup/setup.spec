@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.12
+Version: 2.2.13
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -7,7 +7,6 @@ License: GPL
 Group: System/Configuration/Other
 BuildArch: noarch
 AutoReq: no
-Packager: Dmitry V. Levin <ldv@altlinux.org>
 
 Source: %name-%version.tar
 
@@ -18,7 +17,7 @@ Conflicts: initscripts < 1:5.49.1-alt1, xorg-x11-xfs < 1:1.0.4-alt2
 Initial set of configuration files to be placed into /etc.
 
 %prep
-%setup -q
+%setup
 
 %build
 find -name \*_d |
@@ -74,6 +73,17 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Thu May 27 2010 Dmitry V. Levin <ldv@altlinux.org> 2.2.13-alt1
+- /etc/profile.d/lang.*sh: do not source i18n files if
+  non-empty LANG is already set (closes: #11814).
+- /etc/services: updated SANE entries (closes: #13071).
+- /etc/inputrc: added bindings for xterm ctrl-arrows (closes: #15628).
+- /etc/profile.d/tmpdir.*sh: do not create ~/tmp directory (closes: #19014).
+- /etc/filesystems: replaced obsolete content with a comment hinting
+  on the purpose of this file (closes: #21082).
+- /etc/inputrc: added bindings for history search (closes: #22570).
+- /etc/securetty: added xvc0 for xen virtual console (closes: #23532).
+
 * Tue Nov 18 2008 Dmitry V. Levin <ldv@altlinux.org> 2.2.12-alt1
 - 2.2.12.
 
