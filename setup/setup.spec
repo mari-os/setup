@@ -1,5 +1,5 @@
 Name: setup
-Version: 2.2.13
+Version: 2.2.14
 Release: alt1
 
 Summary: Initial set of configuration files
@@ -73,6 +73,9 @@ find %buildroot%_sysconfdir/profile.d -type l |
 %_datadir/base-passwd
 
 %changelog
+* Tue Oct 12 2010 Dmitry V. Levin <ldv@altlinux.org> 2.2.14-alt1
+- /etc/services: added portbind and quotad/rquotad (closes: #24245).
+
 * Thu May 27 2010 Dmitry V. Levin <ldv@altlinux.org> 2.2.13-alt1
 - /etc/profile.d/lang.*sh: do not source i18n files if
   non-empty LANG is already set (closes: #11814).
