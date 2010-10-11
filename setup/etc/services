@@ -115,8 +115,8 @@ pop2		109/tcp		pop-2	postoffice	# Post Office Protocol - Version 2
 pop2		109/udp		pop-2		# Post Office Protocol - Version 2
 pop3		110/tcp		pop-3		# Post Office Protocol - Version 3
 pop3		110/udp		pop-3		# Post Office Protocol - Version 3
-sunrpc		111/tcp		portmapper	# RPC 4.0 portmapper TCP
-sunrpc		111/udp		portmapper	# RPC 4.0 portmapper UDP
+sunrpc		111/tcp		portmapper rpcbind	# RPC 4.0 portmapper TCP
+sunrpc		111/udp		portmapper rpcbind	# RPC 4.0 portmapper UDP
 auth		113/tcp		authentication tap ident	# Authentication Service
 auth		113/udp		authentication tap ident	# Authentication Service
 sftp		115/tcp				# Simple File Transfer Protocol
