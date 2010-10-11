@@ -276,6 +276,8 @@ ha-cluster	694/udp				# Heartbeat HA-cluster
 kerberos-adm	749/tcp				# Kerberos `kadmin' (v5)
 kerberos-iv	750/udp		kerberos4 kerberos-sec kdc
 kerberos-iv	750/tcp		kerberos4 kerberos-sec kdc
+quotad	        762/tcp		rquotad
+quotad	        762/udp		rquotad
 webster		765/tcp				# Network dictionary
 webster		765/udp				# Network dictionary
 phonebook	767/tcp				# Network phonebook
