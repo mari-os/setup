@@ -12,9 +12,6 @@ umask 022
 [ "$PATH" = "$HOME/bin" -o -z "${PATH##$HOME/bin:*}" -o \
   -z "${PATH%%*:$HOME/bin}" -o -z "${PATH##*:$HOME/bin:*}" ] ||
 	PATH="$HOME/bin:$PATH"
-[ "$PATH" = "/usr/X11R6/bin" -o -z "${PATH##/usr/X11R6/bin:*}" -o \
-  -z "${PATH%%*:/usr/X11R6/bin}" -o -z "${PATH##*:/usr/X11R6/bin:*}" ] ||
-	PATH="$PATH:/usr/X11R6/bin"
 [ "$PATH" = "/usr/games" -o -z "${PATH##/usr/games:*}" -o \
   -z "${PATH%%*:/usr/games}" -o -z "${PATH##*:/usr/games:*}" ] ||
 	PATH="$PATH:/usr/games"

@@ -3,7 +3,7 @@
 # It is recommended that this file be left unchanged to ease upgrades,
 # and any local additions go into /etc/profile.d/ directory.
 
-setenv PATH "/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin"
+setenv PATH "/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 
 # See also /etc/security/limits.conf
 limit coredumpsize 0
