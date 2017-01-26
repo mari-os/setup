@@ -2,7 +2,7 @@
 
 set networkfile=/etc/sysconfig/network
 if ( -f $networkfile && -s $networkfile ) then
-        eval `sed -ne 's/^\(HTTP_PROXY\|HTTPS_PROXY\|FTP_PROXY\)=\([^=]*\)$/setenv \1 \2;/pg' $networkfile`
+        eval `sed -ne 's/^\(HTTP_PROXY\|HTTPS_PROXY\|FTP_PROXY\|NO_PROXY\)=\([^=]*\)$/setenv \1 \2;/pg' $networkfile`
 endif
 
 unsetenv networkfile
@@ -17,4 +17,8 @@ endif
 
 if ( $?FTP_PROXY ) then
     setenv ftp_proxy $FTP_PROXY
+endif
+
+if ( $?NO_PROXY ) then
+    setenv no_proxy $NO_PROXY
 endif

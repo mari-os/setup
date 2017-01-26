@@ -1,7 +1,7 @@
 # /etc/profile.d/proxy.sh - export proxy settings
 
 if [ -s /etc/sysconfig/network ]; then
-    eval `egrep '^(HTTP_PROXY|HTTPS_PROXY|FTP_PROXY)=' /etc/sysconfig/network`
+    eval `egrep '^(HTTP_PROXY|HTTPS_PROXY|FTP_PROXY|NO_PROXY)=' /etc/sysconfig/network`
 fi
 
 if [ -n "$HTTP_PROXY" ]; then
@@ -17,4 +17,9 @@ fi
 if [ -n "$FTP_PROXY" ]; then
     ftp_proxy="$FTP_PROXY"
     export ftp_proxy FTP_PROXY
+fi
+
+if [ -n "$NO_PROXY" ]; then
+    no_proxy="$NO_PROXY"
+    export no_proxy NO_PROXY
 fi
