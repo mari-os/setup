@@ -4,7 +4,7 @@ sourced=
 if [ -n "${LANG-}" ]; then
 	sourced=1
 else
-	for f in "$HOME/.i18n" /etc/sysconfig/i18n; do
+	for f in "$HOME/.i18n" /etc/sysconfig/i18n /etc/locale.conf; do
 		if [ -s "$f" ] && . "$f"; then
 			sourced=1
 			break

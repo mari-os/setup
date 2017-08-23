@@ -9,7 +9,7 @@ if ($?LANG) then
 endif
 
 if (! $sourced) then
-    foreach file ($HOME/.i18n /etc/sysconfig/i18n)
+    foreach file ($HOME/.i18n /etc/sysconfig/i18n /etc/locale.conf)
         if ($sourced == 0 && -f $file && -s $file) then
             eval `sed -n 's|^\([^#=]\+\)=\([^=]*\)$|setenv \1 \2;|pg' $file`
             set sourced=1
