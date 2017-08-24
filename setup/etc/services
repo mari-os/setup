@@ -37,8 +37,6 @@ daytime		13/tcp				# Daytime (RFC 867)
 daytime		13/udp				# Daytime (RFC 867)
 qotd		17/tcp		quote		# Quote of the Day
 qotd		17/udp		quote		# Quote of the Day
-msp		18/tcp				# Message Send Protocol
-msp		18/udp				# Message Send Protocol
 chargen		19/tcp		ttytst source	# Character Generator
 chargen		19/udp		ttytst source	# Character Generator
 ftp-data	20/tcp				# File Transfer [Default Data]
@@ -385,8 +383,8 @@ x25-svc-port	1998/tcp			# Cisco X.25 service (XOT)
 x25-svc-port	1998/udp			# Cisco X.25 service (XOT)
 tcp-id-port	1999/tcp			# Cisco identification port
 tcp-id-port	1999/udp			# Cisco identification port
-cisco-sccp	2000/tcp	sieve		# Cisco SCCP, Sieve Mail Filter Daemon
-cisco-sccp	2000/udp	sieve		# Cisco SCCP, Sieve Mail Filter Daemon
+sieve-filter	2000/tcp	cisco-sccp	# Cisco SCCP, Sieve Mail Filter Daemon
+sieve-filter	2000/udp	cisco-sccp	# Cisco SCCP, Sieve Mail Filter Daemon
 nfs		2049/tcp	nfsd
 nfs		2049/udp	nfsd
 zephyr-srv	2102/tcp			# Zephyr server
@@ -405,6 +403,8 @@ codasrv		2432/tcp			# not used
 codasrv		2432/udp			# server port
 codasrv-se	2433/tcp			# tcp side effects
 codasrv-se	2433/udp			# udp sftp side effectQ
+msp		2438/tcp			# Message send protocol?
+msp		2438/udp			# Message send protocol?
 
 # Ports numbered 2600 through 2606 are used by the zebra package.  The primary
 # names are the registered names, and the zebra names are listed as aliases.
@@ -432,6 +432,7 @@ mysql		3306/udp			# MySQL
 trnsprntproxy   3346/tcp			# Trnsprnt Proxy
 trnsprntproxy   3346/udp			# Trnsprnt Proxy
 pxe		4011/udp			# PXE server
+sieve		4190/tcp			# ManageSieve Protocol
 fud		4201/udp			# Cyrus IMAP FUD Daemon
 rwhois		4321/tcp			# Remote Who Is
 rwhois		4321/udp			# Remote Who Is
