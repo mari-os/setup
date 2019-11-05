@@ -34,6 +34,7 @@ rpc:x:32:
 rpminst:x:33:
 asterisk:x:34:
 kqemu:x:35:
+vmusers:x:36:
 dip:x:40:
 mailman:x:41:
 postfix:x:42:
