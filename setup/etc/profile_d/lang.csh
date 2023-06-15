@@ -63,4 +63,6 @@ if ($sourced) then
     unsetenv SYSFONT
 endif
 
+setenv LANGUAGE "mhr_RU:ru_RU.UTF-8"
+
 unsetenv sourced

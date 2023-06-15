@@ -69,5 +69,7 @@ if [ -n "$sourced" ]; then
 	fi
 fi
 
+export LANGUAGE="mhr_RU:ru_RU.UTF-8"
+
 unset sourced
 unset -f Unset CondSet
